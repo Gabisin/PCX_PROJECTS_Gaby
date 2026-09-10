@@ -24,5 +24,18 @@ export default tseslint.config(
         { allowConstantExport: true },
       ],
     },
+  },
+  {
+    // Primitivos shadcn-style: exportam variantes (cva) e sub-componentes a par
+    // do componente principal — HMR de facto não é perfeito aqui, é aceitável.
+    files: [
+      "src/shared/ui/**/*.tsx",
+      "src/shared/i18n/**/*.tsx",
+      "src/app/providers/**/*.tsx",
+      "src/entities/*/model/*Provider*.tsx",
+    ],
+    rules: {
+      "react-refresh/only-export-components": "off",
+    },
   }
 );
