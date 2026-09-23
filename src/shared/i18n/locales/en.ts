@@ -16,6 +16,15 @@ const en: Dictionary = {
   "theme.light": "Light",
   "theme.dark": "Dark",
   "theme.system": "System",
+  "login.brandCaption": "Africell",
+  "login.brandName": "Portal",
+  "login.welcome": "Welcome",
+  "login.subtitle": "Sign in with your Microsoft account to continue.",
+  "login.signIn": "Sign in with Microsoft",
+  "login.signingIn": "Signing in…",
+  "login.error": "Unable to sign in. Please try again.",
+  "login.restricted": "Access restricted to authorized employees.",
+  "login.copyright": "© {{year}} Africell Angola. All rights reserved.",
 };
 
 export default en;

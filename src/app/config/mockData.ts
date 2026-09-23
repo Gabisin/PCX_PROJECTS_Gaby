@@ -1,13 +1,6 @@
-import type { HeaderUser } from "@widgets/header";
 import type { PermissionScope } from "@features/permissions-consent";
 
-/** Utilizador de demonstração — troca por `entities/user` + o teu provedor de auth (MSAL/NextAuth) real. */
-export const CURRENT_USER: HeaderUser = {
-  name: "Ângela Amaro",
-  email: "angela.amaro.ar6@gmail.com",
-  role: "Administradora",
-};
-
+/** Lista de consentimento mostrada no dialog "Permissões MS 365" — as 3 apps de origem também a apresentam como texto estático, não como leitura em tempo real dos scopes concedidos. */
 export const MOCK_PERMISSION_SCOPES: PermissionScope[] = [
   { group: "Identidade Básica", label: "Iniciar sessão", description: "Iniciar sessão com a tua conta Microsoft", status: "granted" },
   { group: "Identidade Básica", label: "Ver perfil", description: "Ver o teu nome e fotografia de perfil", status: "granted" },

@@ -1,14 +1,16 @@
 import * as React from "react";
 import { Link, Outlet, useLocation, useNavigate } from "react-router-dom";
-import { LayoutGrid, ShieldCheck } from "lucide-react";
+import { ShieldCheck } from "lucide-react";
 import { PageShell } from "@widgets/page-shell";
+import type { HeaderUser } from "@widgets/header";
 import { useNotifications, type AppNotification } from "@entities/notification";
 import { DropdownMenuItem } from "@shared/ui/dropdown-menu";
 import { PermissionsDialog } from "@features/permissions-consent";
 import { LanguageSwitcher } from "@features/language-switcher";
+import { useAuth } from "@features/auth";
 import { NAV_SECTIONS } from "@app/routes/nav";
 import { resolveRouteTitle } from "@app/routes/routeTitles";
-import { CURRENT_USER, MOCK_PERMISSION_SCOPES } from "@app/config/mockData";
+import { MOCK_PERMISSION_SCOPES } from "@app/config/mockData";
 
 function RouterLink({ href, className, children }: { href: string; className?: string; children: React.ReactNode }) {
   return (
@@ -34,7 +36,11 @@ export function AppShell() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const { notifications, markAsRead } = useNotifications();
+  const { user, logout } = useAuth();
   const [permissionsOpen, setPermissionsOpen] = React.useState(false);
+
+  // AppShell só é montado dentro do AuthGuard já autenticado — user nunca é null aqui.
+  const headerUser: HeaderUser = { name: user!.name, email: user!.email };
 
   function handleNotificationClick(notification: AppNotification) {
     markAsRead(notification.id);
@@ -48,7 +54,10 @@ export function AppShell() {
         activeHref={pathname}
         linkComponent={RouterLink}
         brand={<BrandLogo />}
-        user={CURRENT_USER}
+        user={headerUser}
+        onLogout={() => {
+          void logout();
+        }}
         notifications={notifications}
         onNotificationClick={handleNotificationClick}
         onViewAllNotifications={() => navigate("/notifications")}
@@ -58,18 +67,7 @@ export function AppShell() {
             Permissões MS 365
           </DropdownMenuItem>
         }
-        headerActions={
-          <>
-            <LanguageSwitcher />
-            <Link
-              to="/kit-showcase"
-              className="hidden items-center gap-2 rounded-xl px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:bg-muted hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring sm:flex"
-              title="Vitrine de componentes do UI kit"
-            >
-              <LayoutGrid className="size-4" aria-hidden="true" />
-            </Link>
-          </>
-        }
+        headerActions={<LanguageSwitcher />}
         headerTitle={resolveRouteTitle(pathname)}
       >
         <Outlet />
