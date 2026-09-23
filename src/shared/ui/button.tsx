@@ -35,7 +35,7 @@ export interface ButtonProps
     VariantProps<typeof buttonVariants> {
   /** Renderiza como o elemento filho (ex.: um <a>) em vez de <button>. */
   asChild?: boolean;
-  /** Mostra um spinner e desactiva o botão — usar em acções assíncronas (submits, aprovações). */
+  /** Mostra um spinner e desactiva o botão - usar em acções assíncronas (submits, aprovações). */
   isLoading?: boolean;
 }
 
@@ -45,10 +45,10 @@ export interface ButtonProps
  */
 export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, isLoading = false, disabled, children, ...props }, ref) => {
-    // O Slot do Radix exige exactamente um elemento React como filho — não
+    // O Slot do Radix exige exactamente um elemento React como filho - não
     // podemos injectar o spinner ao lado de `children` nesse modo (mistura
     // asChild com estado de loading não faz sentido: asChild serve para
-    // navegação — <Button asChild><Link .../></Button> —, não para acções assíncronas).
+    // navegação - <Button asChild><Link .../></Button> -, não para acções assíncronas).
     if (asChild) {
       return (
         <Slot ref={ref} className={cn(buttonVariants({ variant, size }), className)} {...props}>

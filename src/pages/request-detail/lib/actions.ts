@@ -13,7 +13,7 @@ export interface RequestAction {
 
 /**
  * Que acções estão disponíveis a partir de cada status, e a regra de cada
- * uma (motivo opcional/obrigatório) — a mesma lógica de `getActionConfig`
+ * uma (motivo opcional/obrigatório) - a mesma lógica de `getActionConfig`
  * em `legal_request_management_platform/StatusTransitionModal.tsx`,
  * simplificada para o fluxo genérico deste kit.
  */
@@ -41,7 +41,7 @@ export function getAvailableActions(status: RequestStatus): RequestAction[] {
           tone: "default",
           dialogTitle: "Aprovar este pedido?",
           dialogDescription: "O requerente é notificado da aprovação.",
-          reason: { label: "Comentário de aprovação", placeholder: "Opcional — visível para o requerente" },
+          reason: { label: "Comentário de aprovação", placeholder: "Opcional, visível para o requerente" },
         },
         {
           key: "request_info",
@@ -93,7 +93,7 @@ export function getAvailableActions(status: RequestStatus): RequestAction[] {
         },
       ];
     default:
-      // completed / rejected / cancelled — estados terminais, sem transições de avanço.
+      // completed / rejected / cancelled - estados terminais, sem transições de avanço.
       return [];
   }
 }

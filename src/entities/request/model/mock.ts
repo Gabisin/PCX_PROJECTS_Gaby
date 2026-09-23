@@ -1,11 +1,11 @@
 import type { RequestDetail } from "@entities/request/model/types";
 
-/** Dados de demonstração — troca por uma chamada real em `shared/api` quando ligares o teu backend. */
+/** Dados de demonstração - troca por uma chamada real em `shared/api` quando ligares o teu backend. */
 export const MOCK_REQUESTS: RequestDetail[] = [
   {
     id: "1",
     number: "REQ-2026-001",
-    title: "Acesso ao SharePoint — Financeiro",
+    title: "Acesso ao SharePoint - Financeiro",
     description: "Preciso de acesso de leitura à biblioteca de documentos do departamento Financeiro para preparar o relatório trimestral.",
     businessJustification: "Sem este acesso não é possível reconciliar os documentos de suporte do fecho de Q1.",
     type: "Acesso a Sistema",
@@ -30,7 +30,7 @@ export const MOCK_REQUESTS: RequestDetail[] = [
   {
     id: "2",
     number: "REQ-2026-002",
-    title: "Alteração de âmbito — Portal Legal",
+    title: "Alteração de âmbito - Portal Legal",
     description: "Pedido de alteração ao âmbito contratual do fornecedor XPTO para incluir o módulo de assinatura digital.",
     type: "Alteração Contratual",
     status: "approved",
@@ -50,7 +50,7 @@ export const MOCK_REQUESTS: RequestDetail[] = [
   {
     id: "3",
     number: "REQ-2026-003",
-    title: "Revogação de acesso — Ex-colaborador",
+    title: "Revogação de acesso - Ex-colaborador",
     description: "Revogar todos os acessos de sistema associados ao colaborador que saiu a 2026-02-20.",
     type: "Revogação de Acesso",
     status: "rejected",
@@ -70,7 +70,7 @@ export const MOCK_REQUESTS: RequestDetail[] = [
   {
     id: "4",
     number: "REQ-2026-004",
-    title: "Novo colaborador — Equipamento e acessos",
+    title: "Novo colaborador - Equipamento e acessos",
     description: "Onboarding de novo colaborador na equipa de Engenharia: portátil, crachá e acesso ao repositório de código.",
     type: "Onboarding",
     status: "completed",
@@ -91,7 +91,7 @@ export const MOCK_REQUESTS: RequestDetail[] = [
   {
     id: "5",
     number: "REQ-2026-005",
-    title: "Renovação de licenciamento — Design",
+    title: "Renovação de licenciamento - Design",
     description: "Renovar 8 licenças da suite de design para a equipa de Marketing.",
     type: "Compra/Licenciamento",
     status: "awaiting_info",
@@ -111,7 +111,7 @@ export const MOCK_REQUESTS: RequestDetail[] = [
   {
     id: "6",
     number: "REQ-2026-006",
-    title: "Pedido de parecer — Cláusula de confidencialidade",
+    title: "Pedido de parecer - Cláusula de confidencialidade",
     description: "Parecer jurídico sobre cláusula de confidencialidade num novo contrato de parceria.",
     type: "Parecer Jurídico",
     status: "draft",

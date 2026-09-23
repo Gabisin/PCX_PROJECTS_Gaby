@@ -19,11 +19,11 @@ const STATUS_ICON = {
 };
 
 /**
- * "Permissões MS 365" — reproduz o `ScopeConsentModal` do req_portal e do
+ * "Permissões MS 365" - reproduz o `ScopeConsentModal` do req_portal e do
  * legal_request_management_platform: lista os scopes pedidos pela app
  * agrupados, cada um com o estado de consentimento. Aqui é genérico
  * (`scopes` vem de fora) porque a verificação real depende do provedor de
- * auth de cada projecto (MSAL/NextAuth) — o kit só trata da apresentação.
+ * auth de cada projecto (MSAL/NextAuth) - o kit só trata da apresentação.
  */
 export function PermissionsDialog({ open, onOpenChange, scopes, isRequesting = false, onRequestConsent }: PermissionsDialogProps) {
   const groups = Array.from(new Set(scopes.map((s) => s.group)));

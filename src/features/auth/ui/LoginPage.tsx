@@ -5,7 +5,7 @@ import { LanguageSwitcher } from "@features/language-switcher";
 import { useAuth } from "@features/auth/model/useAuth";
 
 /**
- * Mostrada pelo AuthGuard enquanto não houver sessão MSAL activa — layout
+ * Mostrada pelo AuthGuard enquanto não houver sessão MSAL activa - layout
  * replicado à risca de access_management_system/LoginPage.tsx: painel com
  * imagem de fundo à esquerda (desktop) + formulário à direita.
  */
@@ -38,7 +38,7 @@ export function LoginPage() {
         <LanguageSwitcher />
       </div>
 
-      {/* Painel esquerdo — imagem de fundo, só em desktop */}
+      {/* Painel esquerdo - imagem de fundo, só em desktop */}
       <div className="relative hidden md:block md:w-[58%] lg:w-[60%]">
         <img
           src="/background.png"
@@ -54,7 +54,7 @@ export function LoginPage() {
         <p className="absolute bottom-8 left-10 text-xs text-slate-500">{copyright}</p>
       </div>
 
-      {/* Painel direito — sign-in */}
+      {/* Painel direito - sign-in */}
       <div className="flex flex-1 items-center justify-center px-6 py-12">
         <div className="flex w-full max-w-[400px] flex-col">
           <div className="mb-10 flex items-center gap-2.5 md:hidden">

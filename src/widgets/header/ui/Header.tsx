@@ -22,9 +22,9 @@ export interface HeaderProps {
   isLoadingNotifications?: boolean;
   onNotificationClick?: (notification: AppNotification) => void;
   onViewAllNotifications?: () => void;
-  /** Botão de hambúrguer — só visível abaixo de `lg`, liga à Sidebar em modo drawer. */
+  /** Botão de hambúrguer - só visível abaixo de `lg`, liga à Sidebar em modo drawer. */
   onMenuClick: () => void;
-  /** Slot para ThemeSwitcher / LanguageSwitcher / outras features — o widget não as importa directamente. */
+  /** Slot para ThemeSwitcher / LanguageSwitcher / outras features - o widget não as importa directamente. */
   actions?: React.ReactNode;
   /** Slot extra no menu de conta, entre o cabeçalho (nome/email) e "Terminar sessão" (ex.: link de definições/permissões). */
   accountMenuExtra?: React.ReactNode;
@@ -36,7 +36,7 @@ function initials(name: string) {
 }
 
 /**
- * Barra superior fixa — reproduz à risca o padrão de
+ * Barra superior fixa - reproduz à risca o padrão de
  * req_portal/DashboardHeader, access_management_system/Header e
  * legal_request_management_platform/Header: título à esquerda, sino de
  * notificações com as 2 mais recentes + link "ver tudo", separador vertical,

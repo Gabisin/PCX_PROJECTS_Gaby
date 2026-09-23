@@ -27,7 +27,7 @@ export const msalConfig: Configuration = {
   },
 };
 
-/** Scopes para a API REST do SharePoint — só relevante quando VITE_SHAREPOINT_SITE_URL estiver preenchido. */
+/** Scopes para a API REST do SharePoint - só relevante quando VITE_SHAREPOINT_SITE_URL estiver preenchido. */
 export const sharePointScopes = {
   scopes: [`https://${import.meta.env.VITE_SHAREPOINT_TENANT_NAME as string}.sharepoint.com/.default`],
 };
@@ -37,5 +37,5 @@ export const graphScopes = {
   scopes: ["User.Read", "User.ReadBasic.All"],
 };
 
-/** Instância singleton do MSAL — importar esta em vez de criar novas instâncias. */
+/** Instância singleton do MSAL - importar esta em vez de criar novas instâncias. */
 export const msalInstance = new PublicClientApplication(msalConfig);

@@ -6,7 +6,7 @@ import path from "node:path";
 
 const root = import.meta.dirname;
 
-// FSD layer aliases — keep in sync with tsconfig.app.json "paths"
+// FSD layer aliases - keep in sync with tsconfig.app.json "paths"
 export default defineConfig({
   // basicSsl + porta 3000 → https://localhost:3000, para bater com VITE_MSAL_REDIRECT_URI
   // e o Redirect URI (SPA) registado no app registration do Azure.

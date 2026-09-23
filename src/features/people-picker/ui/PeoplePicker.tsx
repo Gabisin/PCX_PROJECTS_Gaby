@@ -10,7 +10,7 @@ export interface PeoplePickerProps {
   /** Pessoas já seleccionadas. */
   value: Person[];
   onChange: (people: Person[]) => void;
-  /** Chamada à fonte real (Graph/SharePoint/API) — mantém o kit sem dependências de infra. */
+  /** Chamada à fonte real (Graph/SharePoint/API) - mantém o kit sem dependências de infra. */
   search: PeopleSearchFn;
   placeholder?: string;
   /** false = seleccionar só uma pessoa (ex.: atribuir responsável). */
@@ -29,7 +29,7 @@ function initials(name: string) {
 }
 
 /**
- * People-picker genérico — presente nas 3 apps de origem para escolher
+ * People-picker genérico - presente nas 3 apps de origem para escolher
  * requerentes, aprovadores e responsáveis. Pesquisa com debounce,
  * mostra estado de carregamento e "sem resultados" (heurísticas 1 e 6),
  * e permite remover uma selecção sem confirmação extra (heurística 3).
@@ -50,14 +50,14 @@ export function PeoplePicker({
   const containerRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
-    // Query vazia: não há nada a pesquisar. Não limpamos `results` aqui — a
+    // Query vazia: não há nada a pesquisar. Não limpamos `results` aqui - a
     // lista só é renderizada quando `query.trim()` é verdadeiro (ver JSX),
     // por isso resultados antigos ficam simplesmente escondidos até à
     // próxima pesquisa, sem precisar de um setState extra neste efeito.
     if (!query.trim()) return;
     let cancelled = false;
     // setIsLoading fica dentro do callback do debounce (não corre logo ao
-    // montar o efeito) — só mostra "a pesquisar" quando o pedido arranca
+    // montar o efeito) - só mostra "a pesquisar" quando o pedido arranca
     // de facto, 300ms depois do utilizador parar de escrever.
     const timer = setTimeout(async () => {
       if (cancelled) return;

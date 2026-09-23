@@ -3,7 +3,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 /**
  * Monta uma única vez em app/providers. As 3 apps de origem usavam
- * react-toastify (e uma delas também sonner) para feedback de acções —
+ * react-toastify (e uma delas também sonner) para feedback de acções -
  * padronizado aqui para que `toast.success/error/info` funcione em
  * qualquer feature sem cada uma montar o seu próprio container.
  */
@@ -23,7 +23,7 @@ export function Toaster() {
 
 const defaultOptions: ToastOptions = { autoClose: 4000 };
 
-/** Helpers directos — evitam importar react-toastify em cada feature. */
+/** Helpers directos - evitam importar react-toastify em cada feature. */
 export const notify = {
   success: (message: string, options?: ToastOptions) => toast.success(message, { ...defaultOptions, ...options }),
   error: (message: string, options?: ToastOptions) => toast.error(message, { ...defaultOptions, ...options }),

@@ -5,11 +5,11 @@ import type { NavSection } from "@widgets/sidebar/model/types";
 
 export interface SidebarProps {
   sections: NavSection[];
-  /** Caminho activo (ex.: vindo de `useLocation().pathname` do react-router) — o widget não depende do router directamente. */
+  /** Caminho activo (ex.: vindo de `useLocation().pathname` do react-router) - o widget não depende do router directamente. */
   activeHref: string;
   /** Elemento de navegação a usar por item (por omissão um <a>; passar o <Link> do router do projecto). */
   linkComponent?: React.ElementType<{ href: string; className?: string; children: React.ReactNode }>;
-  /** Logo — nas 3 apps de origem é sempre uma imagem centrada, numa secção com borda inferior. */
+  /** Logo - nas 3 apps de origem é sempre uma imagem centrada, numa secção com borda inferior. */
   brand?: React.ReactNode;
   /** Controla a drawer em ecrãs pequenos; ignorado em desktop (a sidebar fica sempre visível a partir de `lg`). */
   isOpen: boolean;
@@ -18,7 +18,7 @@ export interface SidebarProps {
 }
 
 /**
- * Sidebar fixa, 256px — reproduz à risca o padrão de
+ * Sidebar fixa, 256px - reproduz à risca o padrão de
  * `access_management_system/components/layout/Sidebar.tsx`: fundo em
  * gradiente subtil, item activo com fundo branco + sombra e o ícone dentro
  * de uma caixa preenchida na cor de marca (em vez de uma barra lateral),

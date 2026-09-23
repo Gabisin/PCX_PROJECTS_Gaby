@@ -27,7 +27,7 @@ export default tseslint.config(
   },
   {
     // Primitivos shadcn-style: exportam variantes (cva) e sub-componentes a par
-    // do componente principal — HMR de facto não é perfeito aqui, é aceitável.
+    // do componente principal - HMR de facto não é perfeito aqui, é aceitável.
     files: [
       "src/shared/ui/**/*.tsx",
       "src/shared/i18n/**/*.tsx",

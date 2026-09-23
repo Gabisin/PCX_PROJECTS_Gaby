@@ -10,7 +10,7 @@ const STORAGE_KEY = "locale";
 interface I18nContextValue {
   locale: Locale;
   setLocale: (locale: Locale) => void;
-  /** Traduz uma chave; devolve a própria chave entre colchetes se faltar — falha visível em vez de string vazia. */
+  /** Traduz uma chave; devolve a própria chave entre colchetes se faltar - falha visível em vez de string vazia. */
   t: (key: string) => string;
 }
 
@@ -22,7 +22,7 @@ function getInitialLocale(): Locale {
     const stored = window.localStorage.getItem(STORAGE_KEY);
     if (stored && (SUPPORTED_LOCALES as readonly string[]).includes(stored)) return stored as Locale;
   } catch {
-    /* localStorage indisponível (modo privado) — cai para o default */
+    /* localStorage indisponível (modo privado) - cai para o default */
   }
   const browser = window.navigator.language.slice(0, 2);
   return (SUPPORTED_LOCALES as readonly string[]).includes(browser) ? (browser as Locale) : "pt";
@@ -36,7 +36,7 @@ export function I18nProvider({ children }: { children: React.ReactNode }) {
     try {
       window.localStorage.setItem(STORAGE_KEY, next);
     } catch {
-      /* ignora — preferência só não persiste entre sessões */
+      /* ignora - preferência só não persiste entre sessões */
     }
   }, []);
 

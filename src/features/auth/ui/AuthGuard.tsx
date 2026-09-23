@@ -30,7 +30,7 @@ function AuthCheck({ children }: { children: React.ReactNode }) {
   return <>{children}</>;
 }
 
-/** Gate de autenticação Microsoft — envolve toda a app; só monta `children` com sessão MSAL activa. */
+/** Gate de autenticação Microsoft - envolve toda a app; só monta `children` com sessão MSAL activa. */
 export function AuthGuard({ children }: { children: React.ReactNode }) {
   return (
     <MsalProvider instance={msalInstance}>

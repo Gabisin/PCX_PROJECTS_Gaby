@@ -63,7 +63,7 @@ export const TableCaption = React.forwardRef<HTMLTableCaptionElement, React.HTML
 );
 TableCaption.displayName = "TableCaption";
 
-/** Estado vazio consistente para qualquer tabela — evita cada página inventar o seu próprio "sem resultados". */
+/** Estado vazio consistente para qualquer tabela - evita cada página inventar o seu próprio "sem resultados". */
 export function TableEmptyState({ colSpan, message }: { colSpan: number; message: string }) {
   return (
     <TableRow>

@@ -10,7 +10,7 @@ export function AppRouter() {
   return (
     <BrowserRouter>
       <Routes>
-        {/* Alvo do VITE_MSAL_REDIRECT_URI (igual ao access_management_system) — o MSAL
+        {/* Alvo do VITE_MSAL_REDIRECT_URI (igual ao access_management_system) - o MSAL
             devolve o browser aqui depois do login, isto só reencaminha para a home. */}
         <Route path="/home" element={<Navigate to="/" replace />} />
         <Route element={<AppShell />}>

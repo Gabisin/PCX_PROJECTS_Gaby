@@ -11,11 +11,11 @@ interface NotificationsContextValue {
 const NotificationsContext = React.createContext<NotificationsContextValue | null>(null);
 
 /**
- * Estado partilhado das notificações — para o dropdown do Header e a
+ * Estado partilhado das notificações - para o dropdown do Header e a
  * página `/notifications` mostrarem sempre a mesma lista (marcar como lida
  * num sítio reflecte-se no outro). Fica em `entities` (não em `app`) porque
  * tanto `app/routes/AppShell` como `pages/notifications` precisam de o
- * consumir, e uma `page` não pode importar de `app` — só o inverso.
+ * consumir, e uma `page` não pode importar de `app` - só o inverso.
  * Semeado com dados mock; troca por um hook de fetching real
  * (`entities/notification/api`) num projecto a sério.
  */

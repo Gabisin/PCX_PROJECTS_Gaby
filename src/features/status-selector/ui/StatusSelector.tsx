@@ -21,10 +21,10 @@ const DOT_CLASS: Record<StatusOption["tone"], string> = {
 };
 
 /**
- * Selector de status genérico — a lista de opções (com o `tone` de cada uma)
+ * Selector de status genérico - a lista de opções (com o `tone` de cada uma)
  * vem de fora, porque as transições válidas são regra de negócio de cada
  * domínio (ex.: um pedido "Em Aprovação" não pode saltar directo para
- * "Concluído" sem passar por "Aprovado" — essa regra fica em entities/*).
+ * "Concluído" sem passar por "Aprovado" - essa regra fica em entities/*).
  * Restringir a um conjunto fixo de opções em vez de texto livre é
  * prevenção de erros (heurística 5) e reconhecimento em vez de memorização (6).
  */

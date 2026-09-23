@@ -4,7 +4,7 @@ export interface NavItem {
   label: string;
   href: string;
   icon: LucideIcon;
-  /** Para contadores (ex.: pedidos pendentes) — reforça visibilidade do estado do sistema. */
+  /** Para contadores (ex.: pedidos pendentes) - reforça visibilidade do estado do sistema. */
   badgeCount?: number;
 }
 

@@ -37,17 +37,17 @@ const STATUS_OPTIONS: StatusOption[] = [
 ];
 
 const MOCK_ROWS = [
-  { id: "REQ-001", subject: "Acesso ao SharePoint — Financeiro", status: "pending" },
-  { id: "REQ-002", subject: "Alteração de projecto — Portal Legal", status: "approved" },
-  { id: "REQ-003", subject: "Revogação de acesso — Ex-colaborador", status: "rejected" },
+  { id: "REQ-001", subject: "Acesso ao SharePoint - Financeiro", status: "pending" },
+  { id: "REQ-002", subject: "Alteração de projecto - Portal Legal", status: "approved" },
+  { id: "REQ-003", subject: "Revogação de acesso - Ex-colaborador", status: "rejected" },
 ];
 
 /**
- * Vitrine de componentes — não é uma página de produto. Mostra cada peça
+ * Vitrine de componentes - não é uma página de produto. Mostra cada peça
  * do UI kit para (1) provar que app/widgets/features/shared estão bem
  * ligados, e (2) servir de catálogo visual para escolheres o que
  * reaproveitar. É renderizada dentro do mesmo layout route (`AppShell`)
- * que as páginas reais (Pedidos, Detalhe, Notificações) — ver `app/routes/AppRouter.tsx`.
+ * que as páginas reais (Pedidos, Detalhe, Notificações) - ver `app/routes/AppRouter.tsx`.
  */
 export function KitShowcasePage() {
   const [people, setPeople] = React.useState<Person[]>([]);
@@ -71,7 +71,7 @@ export function KitShowcasePage() {
           <CardHeader>
             <CardTitle>Botões, badges e confirmação com regras</CardTitle>
             <CardDescription>
-              Aprovar pede comentário opcional; rejeitar exige motivo — tenta confirmar a rejeição sem escrever nada.
+              Aprovar pede comentário opcional; rejeitar exige motivo - tenta confirmar a rejeição sem escrever nada.
             </CardDescription>
           </CardHeader>
           <CardContent className="flex flex-wrap items-center gap-2">
@@ -99,7 +99,7 @@ export function KitShowcasePage() {
           <CardContent className="flex flex-col gap-4">
             <div className="flex flex-col gap-1.5">
               <Label htmlFor="subject">Assunto</Label>
-              <Input id="subject" placeholder="Ex.: Acesso ao SharePoint — Financeiro" />
+              <Input id="subject" placeholder="Ex.: Acesso ao SharePoint - Financeiro" />
             </div>
             <div className="flex flex-col gap-1.5">
               <Label>Status</Label>

@@ -39,13 +39,13 @@ export function useAuth() {
     } catch (err) {
       if (err instanceof InteractionRequiredAuthError) {
         await instance.acquireTokenRedirect(request);
-        throw new Error("Redirect triggered — token will be available after redirect", { cause: err });
+        throw new Error("Redirect triggered - token will be available after redirect", { cause: err });
       }
       throw err;
     }
   }, [instance, account]);
 
-  /** Token para a API REST do SharePoint — só útil quando `shared/api` estiver ligado a um site real. */
+  /** Token para a API REST do SharePoint - só útil quando `shared/api` estiver ligado a um site real. */
   const acquireSharePointToken = useCallback(async (): Promise<string> => {
     if (!account) throw new Error("Not authenticated");
     const request: SilentRequest = { ...sharePointScopes, account };
@@ -55,7 +55,7 @@ export function useAuth() {
     } catch (err) {
       if (err instanceof InteractionRequiredAuthError) {
         await instance.acquireTokenRedirect(request);
-        throw new Error("Redirect triggered — token will be available after redirect", { cause: err });
+        throw new Error("Redirect triggered - token will be available after redirect", { cause: err });
       }
       throw err;
     }

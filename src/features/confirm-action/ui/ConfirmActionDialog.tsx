@@ -8,14 +8,14 @@ import type { ConfirmActionDialogProps } from "@features/confirm-action/model/ty
 /**
  * Generaliza os vários dialogs de confirmação repetidos nas 3 apps
  * (ApproveChangeRequestDialog, RejectChangeRequestDialog, StatusTransitionModal,
- * ConfirmDialog…): mesmo esqueleto — título, descrição, motivo opcional ou
+ * ConfirmDialog…): mesmo esqueleto - título, descrição, motivo opcional ou
  * obrigatório consoante a acção, cancelar ou confirmar.
  *
  * Regra replicada das 3 apps: uma aprovação pode ter comentário opcional; uma
- * rejeição/cancelamento **exige** motivo — passar `reason.required` liga essa
+ * rejeição/cancelamento **exige** motivo - passar `reason.required` liga essa
  * regra. À semelhança do `ConfirmDialog` do access_management_system, o botão
  * não fica pré-desactivado: ao clicar sem motivo, mostra o erro em vez de
- * ficar simplesmente inerte (heurística 9 — ajudar a reconhecer/recuperar de erros).
+ * ficar simplesmente inerte (heurística 9 - ajudar a reconhecer/recuperar de erros).
  */
 export function ConfirmActionDialog({
   open,
@@ -33,7 +33,7 @@ export function ConfirmActionDialog({
   const [reasonValue, setReasonValue] = React.useState("");
   const [error, setError] = React.useState("");
 
-  // Reinicia o formulário sempre que o dialog reabre — ajuste de estado a
+  // Reinicia o formulário sempre que o dialog reabre - ajuste de estado a
   // partir de uma prop, feito durante o render em vez de num efeito.
   const [wasOpen, setWasOpen] = React.useState(open);
   if (open !== wasOpen) {

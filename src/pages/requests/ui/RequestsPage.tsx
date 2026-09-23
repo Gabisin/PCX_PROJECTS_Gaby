@@ -19,7 +19,7 @@ import { formatTimeAgo } from "@shared/lib/formatTimeAgo";
 const PAGE_SIZE = 6;
 
 /**
- * Grelha de pedidos — reproduz à risca `RequestsListView` do
+ * Grelha de pedidos - reproduz à risca `RequestsListView` do
  * legal_request_management_platform: barra de pesquisa + filtro de status
  * em dropdown + botão de criar, grelha de cards (não tabela), estado vazio
  * ilustrado, e paginação centrada por baixo com a contagem "a mostrar X–Y de Z".

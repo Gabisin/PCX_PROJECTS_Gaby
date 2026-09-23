@@ -1,12 +1,12 @@
 import { CheckCircle2, UserPlus, MessageCircle } from "lucide-react";
 import type { AppNotification } from "@entities/notification/model/types";
 
-/** Dados de demonstração — troca por uma chamada real em `shared/api` quando ligares o teu backend. */
+/** Dados de demonstração - troca por uma chamada real em `shared/api` quando ligares o teu backend. */
 export const MOCK_NOTIFICATIONS: AppNotification[] = [
   {
     id: "n1",
     title: "Pedido aprovado",
-    message: "O pedido REQ-2026-002 — Alteração de âmbito foi aprovado.",
+    message: "O pedido REQ-2026-002 - Alteração de âmbito foi aprovado.",
     createdAt: new Date(Date.now() - 5 * 60_000),
     isRead: false,
     icon: CheckCircle2,

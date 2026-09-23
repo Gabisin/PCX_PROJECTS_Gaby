@@ -21,7 +21,7 @@ function getVisiblePages(page: number, pageCount: number): (number | "ellipsis")
   return result;
 }
 
-/** Paginação numerada. Usada em listas longas (pedidos, utilizadores, logs) — evita scroll infinito sem controlo. */
+/** Paginação numerada. Usada em listas longas (pedidos, utilizadores, logs) - evita scroll infinito sem controlo. */
 export function Pagination({ page, pageCount, onPageChange, className }: PaginationProps) {
   if (pageCount <= 1) return null;
   const pages = getVisiblePages(page, pageCount);

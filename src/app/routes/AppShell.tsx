@@ -20,14 +20,14 @@ function RouterLink({ href, className, children }: { href: string; className?: s
   );
 }
 
-/** Logo — nas 3 apps de origem é sempre a imagem da Africell, centrada com borda inferior. Troca `public/africell_logo2.jpeg` pela tua marca para reaproveitar o layout noutro projecto. */
+/** Logo - nas 3 apps de origem é sempre a imagem da Africell, centrada com borda inferior. Troca `public/africell_logo2.jpeg` pela tua marca para reaproveitar o layout noutro projecto. */
 function BrandLogo() {
   return <img src="/africell_logo2.jpeg" alt="Africell" className="h-14 w-auto rounded object-contain" />;
 }
 
 /**
- * Layout route (app layer): monta o `PageShell` uma única vez — navegação,
- * utilizador, notificações, permissões MS 365 — e renderiza a página da
+ * Layout route (app layer): monta o `PageShell` uma única vez - navegação,
+ * utilizador, notificações, permissões MS 365 - e renderiza a página da
  * rota actual via `<Outlet/>`. As `pages/*` nunca importam isto directamente
  * (isso violaria a hierarquia de import do FSD, pages não pode depender de
  * app); é o router, aqui em `app/routes`, que as envolve.
@@ -39,7 +39,7 @@ export function AppShell() {
   const { user, logout } = useAuth();
   const [permissionsOpen, setPermissionsOpen] = React.useState(false);
 
-  // AppShell só é montado dentro do AuthGuard já autenticado — user nunca é null aqui.
+  // AppShell só é montado dentro do AuthGuard já autenticado - user nunca é null aqui.
   const headerUser: HeaderUser = { name: user!.name, email: user!.email };
 
   function handleNotificationClick(notification: AppNotification) {

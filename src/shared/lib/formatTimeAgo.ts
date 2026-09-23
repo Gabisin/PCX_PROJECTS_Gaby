@@ -1,4 +1,4 @@
-/** "Há 5min" / "Ontem" / "Há 3 dias" — padrão de timestamp relativo repetido nas 3 apps de origem (notificações). */
+/** "Há 5min" / "Ontem" / "Há 3 dias" - padrão de timestamp relativo repetido nas 3 apps de origem (notificações). */
 export function formatTimeAgo(date: string | Date): string {
   const target = typeof date === "string" ? new Date(date) : date;
   const diffMs = Date.now() - target.getTime();

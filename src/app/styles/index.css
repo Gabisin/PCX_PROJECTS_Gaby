@@ -1,18 +1,18 @@
 @import "tailwindcss";
 
 /*
- * Design tokens do UI kit — extraídos do denominador comum visual entre
+ * Design tokens do UI kit - extraídos do denominador comum visual entre
  * req_portal, access_management_system e legal_request_management_platform:
  * sidebar/header brancos, cinzentos "slate", e a mesma cor de marca magenta
- * usada nas 3 (#b41675 / #a01775 / #A1007C — aqui centrada em #A1007C).
+ * usada nas 3 (#b41675 / #a01775 / #A1007C - aqui centrada em #A1007C).
  * Muda só o --primary para re-skinnar o kit todo para outra marca.
- * Um único tema (sem modo escuro) — nenhuma das 3 apps de origem tem.
+ * Um único tema (sem modo escuro) - nenhuma das 3 apps de origem tem.
  */
 
 :root {
   --radius: 0.5rem;
 
-  /* Fundo da página ligeiramente cinzento (slate-50) atrás de sidebar/header/cards brancos — mesma camada visual das 3 apps de origem */
+  /* Fundo da página ligeiramente cinzento (slate-50) atrás de sidebar/header/cards brancos - mesma camada visual das 3 apps de origem */
   --background: 210 40% 98%;
   --foreground: 222.2 47.4% 11.2%;
 
@@ -26,7 +26,7 @@
   --muted: 210 40% 96.1%;
   --muted-foreground: 215.4 16.3% 46.9%;
 
-  /* Magenta de marca (Africell) — igual nas 3 apps de origem, variando só o tom */
+  /* Magenta de marca (Africell) - igual nas 3 apps de origem, variando só o tom */
   --primary: 314 100% 32%;
   --primary-foreground: 0 0% 100%;
 
@@ -89,7 +89,7 @@ body {
   color: hsl(var(--foreground));
 }
 
-/* Estado de foco visível em qualquer elemento interactivo — WCAG 2.4.7 */
+/* Estado de foco visível em qualquer elemento interactivo - WCAG 2.4.7 */
 :focus-visible {
   outline: 2px solid hsl(var(--ring));
   outline-offset: 2px;

@@ -9,7 +9,7 @@ import { formatTimeAgo } from "@shared/lib/formatTimeAgo";
 type FilterType = "all" | "unread" | "read";
 
 /**
- * Página de notificações completa — reproduz `app/notifications/page.tsx`
+ * Página de notificações completa - reproduz `app/notifications/page.tsx`
  * do req_portal: cabeçalho com ícone + contagem de não lidas + "marcar
  * todas como lidas", filtros all/unread/read, e a lista com o mesmo
  * tratamento visual do dropdown do Header (ícone circular, ponto de não

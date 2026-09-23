@@ -50,7 +50,7 @@ function InfoRow({ label, value }: { label: string; value: React.ReactNode }) {
 }
 
 /**
- * Ecrã de detalhe — reproduz `RequestDetailView` (legal) /
+ * Ecrã de detalhe - reproduz `RequestDetailView` (legal) /
  * `RequestDetailPage` (access_management_system): cartão de cabeçalho com
  * requerente + estatísticas + menu de acções, tabs (Detalhes/Histórico/
  * Documentos/Comentários), e o layout 2+1 colunas na tab de Detalhes.
@@ -222,9 +222,9 @@ export function RequestDetailPage() {
                       <h3 className="text-sm font-semibold text-foreground">Informações básicas</h3>
                       <InfoRow label="Número" value={req.number} />
                       <InfoRow label="Tipo" value={req.type} />
-                      <InfoRow label="Departamento" value={req.department ?? "—"} />
+                      <InfoRow label="Departamento" value={req.department ?? "-"} />
                       <InfoRow label="Submetido" value={formatTimeAgo(req.submittedAt)} />
-                      <InfoRow label="Email" value={req.requesterEmail ?? "—"} />
+                      <InfoRow label="Email" value={req.requesterEmail ?? "-"} />
                     </CardContent>
                   </Card>
                 </div>
@@ -242,7 +242,7 @@ export function RequestDetailPage() {
                       <Circle className="mt-1 size-3.5 shrink-0 fill-primary text-primary" aria-hidden="true" />
                       <div className="min-w-0 flex-1 pb-1">
                         <p className="text-sm font-medium text-foreground">
-                          {entry.actorName} — <span className="text-muted-foreground">{formatTimeAgo(entry.createdAt)}</span>
+                          {entry.actorName}, <span className="text-muted-foreground">{formatTimeAgo(entry.createdAt)}</span>
                         </p>
                         {entry.comment && <p className="mt-1 text-sm text-muted-foreground">{entry.comment}</p>}
                       </div>

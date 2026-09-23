@@ -2,7 +2,7 @@ import { Languages } from "lucide-react";
 import { useI18n, SUPPORTED_LOCALES } from "@shared/i18n";
 
 /**
- * Alterna pt → en → fr num único clique — reproduz à risca o `LangToggle`
+ * Alterna pt → en → fr num único clique - reproduz à risca o `LangToggle`
  * de `legal_request_management_platform/Header.tsx` (um botão que roda
  * pelo ciclo de línguas e mostra o código actual), em vez de um dropdown.
  */

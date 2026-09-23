@@ -29,7 +29,7 @@ export interface BadgeProps
 /**
  * Badge genérico por "tone" semântico. As 3 apps de origem tinham um
  * StatusBadge por domínio (change-request, access-request, approval) que
- * mapeava um status de negócio para uma cor — esse mapeamento fica para a
+ * mapeava um status de negócio para uma cor - esse mapeamento fica para a
  * camada `entities` de cada projecto (ex.: entities/request/lib/statusTone.ts),
  * que traduz o status para um destes `tone` antes de renderizar <Badge>.
  */

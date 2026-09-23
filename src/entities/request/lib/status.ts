@@ -2,7 +2,7 @@ import type { StatusOption } from "@shared/types/status-option";
 import type { RequestStatus } from "@entities/request/model/types";
 
 /**
- * Único sítio que sabe o nome e a cor de cada status — exactamente o que
+ * Único sítio que sabe o nome e a cor de cada status - exactamente o que
  * `COMPONENTS.md`/`USABILITY.md` prometiam: o `Badge`/`StatusSelector` do
  * kit são genéricos por `tone`, este mapeamento é que pertence ao domínio.
  */

@@ -2,51 +2,51 @@
 
 Admin dashboard template / SaaS boilerplate em React + TypeScript, organizado segundo a arquitectura **Feature-Sliced Design (FSD)**.
 
-Vem com um **UI kit funcional e genérico** (design system, layout, features transversais) extraído do denominador comum de 3 sistemas reais — pronto a escolher e montar num projecto novo, não só uma pasta vazia com boas intenções.
+Vem com um **UI kit funcional e genérico** (design system, layout, features transversais) extraído do denominador comum de 3 sistemas reais - pronto a escolher e montar num projecto novo, não só uma pasta vazia com boas intenções.
 
 ```
 npm install
-npm run dev   # abre a app real — grelha de Pedidos em "/", detalhe em "/requests/:id", notificações e vitrine de componentes na sidebar
+npm run dev   # abre a app real - grelha de Pedidos em "/", detalhe em "/requests/:id", notificações e vitrine de componentes na sidebar
 ```
 
 ## Porquê este projecto existe
 
-Analisei 3 apps que resolvem o mesmo problema — um portal de pedidos/aprovações com autenticação Microsoft (MSAL/SharePoint) — cada uma reimplementada do zero:
+Analisei 3 apps que resolvem o mesmo problema - um portal de pedidos/aprovações com autenticação Microsoft (MSAL/SharePoint) - cada uma reimplementada do zero:
 
-- [`req_portal`](../req_portal) — Next.js
-- [`coutinhos/access_management_system`](../coutinhos/access_management_system) — Vite
-- [`legal_request_management_platform`](../legal_request_management_platform) — Next.js
+- [`req_portal`](../req_portal) - Next.js
+- [`coutinhos/access_management_system`](../coutinhos/access_management_system) - Vite
+- [`legal_request_management_platform`](../legal_request_management_platform) - Next.js
 
 Padrão repetido nas 3: pastas `components/`/`pages/` planas, misturando UI genérica (`ui/button.tsx`) com UI de domínio (`RequestDetailView.tsx`) e páginas inteiras no mesmo nível; `hooks/`/`lib/` como gavetas únicas; nenhuma fronteira explícita entre "reutilizável em qualquer projecto" (`StatusBadge`, `PeoplePicker`, cliente HTTP) e "específico deste domínio" (`ChangeRequestForm`, `useAppApprovals`). Resultado: as 3 reimplementam auth MSAL, i18n, people-picker, PDF export e tabelas de aprovação, cada uma à sua maneira.
 
 `structure` resolve isto em duas frentes:
 1. **FSD** impõe uma hierarquia de camadas com regras de importação explícitas, separando o genérico do específico.
-2. Um **UI kit já construído** em cima dessa estrutura — ver [`COMPONENTS.md`](./COMPONENTS.md) para o inventário completo (o que já está pronto vs. o que falta portar) e [`USABILITY.md`](./USABILITY.md) para as regras de usabilidade que o kit segue.
+2. Um **UI kit já construído** em cima dessa estrutura - ver [`COMPONENTS.md`](./COMPONENTS.md) para o inventário completo (o que já está pronto vs. o que falta portar) e [`USABILITY.md`](./USABILITY.md) para as regras de usabilidade que o kit segue.
 
 ## O que já vem pronto
 
 Ícones: **lucide-react** em todo o kit (é a lib comum às 3 apps de origem). Estilo: Tailwind v4 + Radix UI (padrão shadcn), também o denominador comum entre as 3.
 
-### Identidade visual — replicada à risca, não reinventada
+### Identidade visual - replicada à risca, não reinventada
 
-- **Sidebar** — fundo em gradiente subtil, logo da Africell centrado no topo com borda inferior, item activo com **fundo branco + sombra e o ícone dentro de uma caixa preenchida** na cor de marca — pixel-a-pixel o padrão de `access_management_system/components/layout/Sidebar.tsx` (não o padrão de barra lateral do req_portal/legal).
+- **Sidebar** - fundo em gradiente subtil, logo da Africell centrado no topo com borda inferior, item activo com **fundo branco + sombra e o ícone dentro de uma caixa preenchida** na cor de marca - pixel-a-pixel o padrão de `access_management_system/components/layout/Sidebar.tsx` (não o padrão de barra lateral do req_portal/legal).
 - **Header** fixo, branco, alinhado a partir do fim da sidebar (`lg:left-64`): título à esquerda, selector de idioma, sino de notificações com dropdown completo (últimas 2 + "ver todas"), separador vertical, menu de conta (avatar + nome + cargo) com entrada **"Permissões MS 365"** e terminando sempre em "Terminar sessão" a vermelho.
-- **Selector de idioma** — um único botão que roda pt→en→fr e mostra o código do idioma actual, sem dropdown — o `LangToggle` exacto do `legal_request_management_platform/Header.tsx`.
-- **Sem modo escuro/claro** — nenhuma das 3 apps de origem tem; o kit segue um único tema.
-- **Logo real da Africell** (`public/africell_logo2.jpeg`) — não um placeholder genérico; troca o ficheiro para reaproveitar o layout com outra marca.
-- **Cor de marca**: as 3 apps usam a mesma família magenta (`#b41675` / `#a01775` / `#A1007C`). Centralizei em `#A1007C` como `--primary` em `app/styles/index.css` — é o **único token que precisas de mudar** para re-skinnar todo o kit.
+- **Selector de idioma** - um único botão que roda pt→en→fr e mostra o código do idioma actual, sem dropdown - o `LangToggle` exacto do `legal_request_management_platform/Header.tsx`.
+- **Sem modo escuro/claro** - nenhuma das 3 apps de origem tem; o kit segue um único tema.
+- **Logo real da Africell** (`public/africell_logo2.jpeg`) - não um placeholder genérico; troca o ficheiro para reaproveitar o layout com outra marca.
+- **Cor de marca**: as 3 apps usam a mesma família magenta (`#b41675` / `#a01775` / `#A1007C`). Centralizei em `#A1007C` como `--primary` em `app/styles/index.css` - é o **único token que precisas de mudar** para re-skinnar todo o kit.
 - **Fundo**: página em cinzento muito claro (`slate-50`) com sidebar/header/cards brancos por cima.
-- **Breakpoint**: sidebar fixa a partir de `lg` (1024px), com drawer + overlay abaixo disso — o padrão do `access_management_system`.
+- **Breakpoint**: sidebar fixa a partir de `lg` (1024px), com drawer + overlay abaixo disso - o padrão do `access_management_system`.
 
 ### Já é uma app navegável, não só uma vitrine
 
-`app/routes/AppRouter.tsx` liga tudo com `react-router-dom` — a sidebar aponta para rotas reais:
+`app/routes/AppRouter.tsx` liga tudo com `react-router-dom` - a sidebar aponta para rotas reais:
 
 | Rota | Página | Reproduz |
 |---|---|---|
-| `/` | `pages/requests` | `RequestsListView` do legal — **grelha de cards** (não tabela), pesquisa, filtro de status, paginação |
-| `/requests/:id` | `pages/request-detail` | `RequestDetailView`/`RequestDetailPage` — cabeçalho com requerente+stats, tabs Detalhes/Histórico/Documentos/Comentários, menu de acções com regras (ver abaixo) |
-| `/notifications` | `pages/notifications` | Página de notificações completa do req_portal — filtros todas/não lidas/lidas, marcar (todas) como lida |
+| `/` | `pages/requests` | `RequestsListView` do legal - **grelha de cards** (não tabela), pesquisa, filtro de status, paginação |
+| `/requests/:id` | `pages/request-detail` | `RequestDetailView`/`RequestDetailPage` - cabeçalho com requerente+stats, tabs Detalhes/Histórico/Documentos/Comentários, menu de acções com regras (ver abaixo) |
+| `/notifications` | `pages/notifications` | Página de notificações completa do req_portal - filtros todas/não lidas/lidas, marcar (todas) como lida |
 | `/kit-showcase` | `pages/kit-showcase` | Vitrine dos primitivos do UI kit isolados |
 
 | Camada | O que tens |
@@ -60,9 +60,9 @@ Padrão repetido nas 3: pastas `components/`/`pages/` planas, misturando UI gen�
 | `app/routes` | `AppRouter`, `AppShell` (layout route), `nav.tsx`, `routeTitles.ts` |
 | `app/providers` | `AppProviders` (i18n + tooltip + toasts) |
 
-**Regras de aprovar/rejeitar/cancelar** (`pages/request-detail/lib/actions.ts`, generalizado de `StatusTransitionModal`/`Approve|RejectChangeRequestDialog`): que acções aparecem depende do status actual do pedido; aprovar pede um comentário opcional, rejeitar e cancelar exigem motivo — tentar confirmar sem o escrever mostra o erro em vez de deixar o botão simplesmente inerte.
+**Regras de aprovar/rejeitar/cancelar** (`pages/request-detail/lib/actions.ts`, generalizado de `StatusTransitionModal`/`Approve|RejectChangeRequestDialog`): que acções aparecem depende do status actual do pedido; aprovar pede um comentário opcional, rejeitar e cancelar exigem motivo - tentar confirmar sem o escrever mostra o erro em vez de deixar o botão simplesmente inerte.
 
-Tudo o resto que existe nas 3 apps (dashboards com gráficos, formulários de criação de pedido, workflow de aprovação multi-etapa configurável, upload de documentos, etc.) está **catalogado mas não portado** — ver [`COMPONENTS.md`](./COMPONENTS.md) para a lista completa com origem de cada componente. Pede para portar o que precisares; o catálogo diz exactamente que ficheiro de origem generalizar.
+Tudo o resto que existe nas 3 apps (dashboards com gráficos, formulários de criação de pedido, workflow de aprovação multi-etapa configurável, upload de documentos, etc.) está **catalogado mas não portado** - ver [`COMPONENTS.md`](./COMPONENTS.md) para a lista completa com origem de cada componente. Pede para portar o que precisares; o catálogo diz exactamente que ficheiro de origem generalizar.
 
 ## O que é Feature-Sliced Design
 
@@ -96,7 +96,7 @@ Regra de importação: **uma camada só pode importar de camadas abaixo dela** (
 | `lib/` | Funções auxiliares específicas da fatia |
 | `config/` | Constantes e configuração da fatia |
 
-Uma fatia expõe apenas o necessário através de um `index.ts` (API pública) — importa sempre `@features/people-picker`, nunca `@features/people-picker/ui/PeoplePicker` directamente de fora da fatia.
+Uma fatia expõe apenas o necessário através de um `index.ts` (API pública) - importa sempre `@features/people-picker`, nunca `@features/people-picker/ui/PeoplePicker` directamente de fora da fatia.
 
 ## Estrutura de pastas
 
@@ -110,12 +110,12 @@ structure/
 ├── tsconfig*.json
 ├── eslint.config.js
 └── src/
-    ├── main.tsx                 # composition root — <AppProviders><AppRouter/></AppProviders>
+    ├── main.tsx                 # composition root - <AppProviders><AppRouter/></AppProviders>
     ├── app/
-    │   ├── config/               # mockData.ts — utilizador e scopes de permissões de demonstração
+    │   ├── config/               # mockData.ts - utilizador e scopes de permissões de demonstração
     │   ├── providers/            # AppProviders (i18n + tooltip + toasts)
     │   ├── routes/                # AppRouter, AppShell (layout route), nav.tsx, routeTitles.ts
-    │   └── styles/                 # index.css — tokens de cor e import do Tailwind
+    │   └── styles/                 # index.css - tokens de cor e import do Tailwind
     ├── pages/
     │   ├── requests/               # grelha de pedidos (rota "/")
     │   ├── request-detail/          # detalhe + acções com regras (rota "/requests/:id")
@@ -136,8 +136,8 @@ structure/
     │   └── notification/           # tipos + estado partilhado (NotificationsProvider)
     └── shared/
         ├── ui/                    # Button, Badge, Input, Dialog, Table… (design system)
-        ├── api/                    # vazio — cliente HTTP/SharePoint/Graph do teu projecto
-        ├── config/                 # vazio — env vars, feature flags
+        ├── api/                    # vazio - cliente HTTP/SharePoint/Graph do teu projecto
+        ├── config/                 # vazio - env vars, feature flags
         ├── i18n/                    # I18nProvider + dicionários pt/en/fr
         ├── lib/                     # cn.ts, formatTimeAgo.ts
         └── types/                    # status-option.ts (tipo partilhado por entities e features)
@@ -168,11 +168,11 @@ Pastas ainda vazias (`shared/api`, `shared/config`) mantêm um `.gitkeep` só pa
 
 Para o projecto não voltar a degenerar em pastas planas à medida que cresce:
 
-- [`steiger`](https://github.com/feature-sliced/steiger) — linter dedicado a FSD, valida a hierarquia de camadas e a API pública das fatias.
+- [`steiger`](https://github.com/feature-sliced/steiger) - linter dedicado a FSD, valida a hierarquia de camadas e a API pública das fatias.
 - ou `eslint-plugin-boundaries` configurado manualmente com as mesmas regras.
 
 ## Referência
 
 - Documentação oficial FSD: https://feature-sliced.design
-- [`COMPONENTS.md`](./COMPONENTS.md) — catálogo completo de componentes
-- [`USABILITY.md`](./USABILITY.md) — princípios e regras de usabilidade
+- [`COMPONENTS.md`](./COMPONENTS.md) - catálogo completo de componentes
+- [`USABILITY.md`](./USABILITY.md) - princípios e regras de usabilidade

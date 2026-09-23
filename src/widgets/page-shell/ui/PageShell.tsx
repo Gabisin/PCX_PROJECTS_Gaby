@@ -21,14 +21,14 @@ export interface PageShellProps {
 }
 
 /**
- * Composição de página completa — reproduz à risca a estrutura do
+ * Composição de página completa - reproduz à risca a estrutura do
  * DashboardLayout (req_portal) / AppLayout (access_management_system) /
  * layout com Sidebar+Header (legal_request_management_platform): sidebar
- * fixa de 256px, header fixo alinhado a partir dela (`lg:left-64` — mesmo
+ * fixa de 256px, header fixo alinhado a partir dela (`lg:left-64` - mesmo
  * breakpoint da Sidebar), e o conteúdo compensado com padding para nunca
  * ficar por baixo de nenhum dos dois.
  *
- * Fica em `widgets` — não em `pages` — porque é reutilizada por todas as
+ * Fica em `widgets` - não em `pages` - porque é reutilizada por todas as
  * páginas autenticadas; cada `pages/*` só lhe passa o conteúdo próprio.
  */
 export function PageShell({
